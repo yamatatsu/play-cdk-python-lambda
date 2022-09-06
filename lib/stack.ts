@@ -17,5 +17,13 @@ export class MyStack extends cdk.Stack {
       handler: "one.handler",
       layers: [layer],
     });
+
+    new lambda.Function(this, "two", {
+      functionName: "two",
+      runtime: lambda.Runtime.PYTHON_3_9,
+      code: lambda.AssetCode.fromAsset("lib/lambda-two"),
+      handler: "two.handler",
+      layers: [layer],
+    });
   }
 }
